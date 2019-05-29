@@ -1,0 +1,4 @@
+server/*.pem
+server/auth_data
+client/*.pem
+lib/*.pyc
