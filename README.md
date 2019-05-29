@@ -1,4 +1,4 @@
-# OPAQUE PAKE Protocol Proof-of-concept
+# OPAQUE PAKE Protocol Proof-Of-Concept
 
 ## OBVIOUSLY DON'T USE THIS IS PRODUCTION
 
