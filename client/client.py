@@ -1,7 +1,7 @@
 import socket,sys,os,pickle
 from base64 import b64encode, b64decode
 # Tmp abspath since nothing works TODO
-sys.path.insert(0, r'/home/ludvig/Projects/pake_client')
+sys.path.insert(0, r'/home/ludvig/Projects/OPAQUE_POC')
 
 # Own imports
 from lib.aesgcm import AESGCM
@@ -81,6 +81,10 @@ def register():
         "pub": pub.exportKey()}
     server_send(s, data)
     
+    # Remove keys
+    os.remove("private.pem")
+    os.remove("public.pem")
+
 def login():
     s = server_connect()
     
@@ -119,7 +123,7 @@ def login():
         server_send(s, data)
         print "Wrong password."
         return
-    
+     
     # Verify signature
     h = hash_list([dh_y, data["sy"]])
     pubkey = RSA.importKey(env["pubS"])
@@ -135,7 +139,7 @@ def login():
     # Now the proof is sent to the server aswell
     
     # Create signature
-    priv, pub = read_rsa_keys(os.getcwd())
+    priv = RSA.importKey(env["privU"])
     signature = sign(priv, h)
     # Create mac
     mac = hash_list([mac_key, env["pubU"]])

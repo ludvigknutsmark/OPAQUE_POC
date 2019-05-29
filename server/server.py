@@ -1,6 +1,6 @@
 import socket, os, sys
 # Tmp abspath since nothing works #TODO
-sys.path.insert(0, r'/home/ludvig/Projects/pake_client')
+sys.path.insert(0, r'/home/ludvig/Projects/OPAQUE_POC')
 
 # RSA imports
 from Crypto.PublicKey import RSA
